@@ -21,7 +21,6 @@ layout: page
 </script>
 
 {% for post in paginator.posts %}
-<div align="right" id="pph-hireme" ></div>
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">            {{ post.title }}
@@ -38,6 +37,7 @@ layout: page
 <hr>
 {% endfor %}
 
+<div align="right" id="pph-hireme" ></div>
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
 <ul class="pager">
