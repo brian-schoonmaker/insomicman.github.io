@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Joins: Unleashing the True Power of SQL"
-date:   2017-09-24 00:51:40 +0000
+date:   2017-09-23 20:51:41 -0400
 ---
 
 
@@ -161,10 +161,10 @@ Here's the result:
       Table1  
 | First        | First       |   
 | -------------- | -------------- | 
-|Beth|Beth|
-|John	|John|
-|Mary|	Mary|
-|Dan	|Dan|
+|Beth         |Beth        |
+|John	       |John        |
+|Mary        |	Mary     |
+|Dan	       |Dan         |
 
 Again, this isn't particularly useful, but it's a proof of concept without comparing integer values.
 
