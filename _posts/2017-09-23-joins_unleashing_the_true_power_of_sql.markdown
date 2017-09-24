@@ -158,7 +158,6 @@ WHERE a.first = b.first;
 
 Here's the result:
 
-      Table1  
 			
 | First        | First       |   
 | -------------- | -------------- | 
