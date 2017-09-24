@@ -38,7 +38,7 @@ Let's break down the other components of this generalized query for those new to
 * **LIMIT** specifies the maximum number of rows returned (LIMIT 100 returns the first 100 rows).
 * **OFFSET** sets the number of initial values to skip. (OFFSET 10 will show values in rows 11+)
 
-### INNER JOINs: The Most Useful of JOINs
+## INNER JOINs: The Most Useful of JOINs
 
 ![](https://www.w3resource.com/w3r_images/sql-inner-join-set-image.gif)
 
@@ -53,11 +53,11 @@ JOIN another_table
 
 On the first line of this code snippit, the user specifies the second table (another_table) that will be JOINed with the first table (table). Since INNER JOINs return matching rows, the matching criteria must be specified. Here the user uses the "id" column as the primary key for both tables. The resulting table will display any combined rows where the "id" value matches in both tables.
 
-### OUTER JOINs: Including Unmatched Rows
+## OUTER JOINs: Including Unmatched Rows
 
 In some situations, in addition to returning matching rows between two tables, you want to include all unmatched rows from one or more tables as well. That's where OUTER JOINs come in.
 
-#### FULL OUTER JOIN:
+### FULL OUTER JOIN:
 
 ![](https://i.imgur.com/KXFG0bG.png)
 
@@ -146,7 +146,7 @@ This is the result:
 
 Notice that the null values are in the 2nd table with a LEFT OUTER JOIN, while the null values are in the 1st table with a RIGHT OUTER JOIN.
 
-#### SELF JOINs:
+### SELF JOINs:
 
 A SELF JOIN is, as the name implies, a SQL query where a table is joined with itself. It's used to compare values in a particular column with other values in that same table. A practical use of this is to create a running total of integer values. Below is an entirely impractical example that simply returns all first names in the table, as the same variable is being compared. In order to do this, we have to create two ailiases both linked to the same table and join them together:
 
@@ -202,7 +202,7 @@ A table with 4 rows CROSS JOINed to a table with 4 rows returns 4\*4 = 16 rows:
 
 Since there are no conditions used in this code, it isn't particularly useful. But if you need to look at all the possible permutations of row combinations, it can be helpful.
 
-#### Extra Credit: Why are my commands in all caps?
+### Extra Credit: Why are my commands in all caps?
 
 Technically, SQL is not a case sensitive language, so capitalizing command isn't required. It does, however, make the code much more readable. If there's any possibility that someone else will eventually modify the code, best practices suggest making the SQL commands all caps so that another person can easily identify them. It's just common courtesy, and the sooner you can get in the habit of doing so, the better. Your peers will thank you for it.
 
