@@ -63,7 +63,7 @@ In some situations, in addition to returning matching rows between two tables, y
 
 FULL OUTER JOIN returns the set of all records from both tables. If there is a match, the rows will be returned similarly to an INNER JOIN. If there is no match, a row will be returned with null values for the other table. For example, take the following two tables:
 
-      Table1          Table2            
+
 | First        | Last        |     |  First        | Last        |
 | -------------- | -------------- |     | -------------- | -------------- |
 | John        | Doe         |     | Beth        | Doe         |
@@ -81,7 +81,6 @@ ON Table1.last = Table2.last
 
 The result is the following:
 
-      Table1          Table2            
 | First        | Last        |     |  First        | Last        |
 | -------------- | -------------- |     | -------------- | -------------- |
 |John	| Doe	|| Beth	| Doe |
@@ -117,8 +116,6 @@ ON Table1.last = Table2.last
 ```
 
 The result would be:
-
-      Table1          Table2            
 | First        | Last        |     |  First        | Last        |
 | -------------- | -------------- |     | -------------- | -------------- |
 |John|	Doe||	Beth|	Doe|
