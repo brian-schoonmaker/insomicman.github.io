@@ -116,6 +116,7 @@ ON Table1.last = Table2.last
 ```
 
 The result would be:
+
 | First        | Last        |     |  First        | Last        |
 | -------------- | -------------- |     | -------------- | -------------- |
 |John|	Doe||	Beth|	Doe|
@@ -133,7 +134,6 @@ ON Table1.last = Table2.last
 
 This is the result:
 
-      Table1          Table2            
 | First        | Last        |     |  First        | Last        |
 | -------------- | -------------- |     | -------------- | -------------- |
 |John|	Doe||	Beth|	Doe|
