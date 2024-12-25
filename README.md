@@ -13,7 +13,7 @@ Most places in the codebase that are most likely to be updated are included in f
 - `_layouts`:
 - `_includes`: HTML for Header, Footer and Navigation elements
 
-## Running locally
+## Running locally 
 
 In order to run, you'll need to have installed locally:
 
