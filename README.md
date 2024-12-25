@@ -19,6 +19,7 @@ In order to run, you'll need to have installed locally:
 
 - Ruby 3+
 - Jekyll (and related dependencies / Gems if not already installed) `gem install jekyll`
+- npm
 
 To run locally, run the following command:
 
