@@ -1,24 +1,25 @@
-#Clean Blog by Start Bootstrap - Jekyll Version
+# Personal Homepage
 
-The official Jekyll version of the Clean Blog theme by [Start Bootstrap](http://startbootstrap.com/).
+A basic personal home and blog
 
-###[View Live Demo &rarr;](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)
+Built off of an initial version of a [Ruby / PHP Bootstrap project](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll) in 2017 and really needs to be updated to something better at some point, but serves as an easy way to add Markdown based posts to a website.
 
-## Before You Begin
+## Making Changes
 
-In the _config.yml file, the base URL is set to /startbootstrap-clean-blog-jekyll which is this themes gh-pages preview. It's recommended that you remove the base URL before working with this theme locally!
+Most places in the codebase that are most likely to be updated are included in folders prefixed with an underscore:
 
-It should look like this:
-`baseurl: ""`
+- `_config.yml` - Includes basic site and build settings
+- `_posts`: Folder containing MD files used to populate blog
+- `_layouts`:
+- `_includes`: HTML for Header, Footer and Navigation elements
 
-## What's Included
+## Running locally
 
-A full Jekyll environment is included with this theme. If you have Jekyll installed, simply run `jekyll serve` in your command line and preview the build in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
+In order to run, you'll need to have installed locally:
 
-A Grunt environment is also included. There are a number of tasks it performs like minification of the JavaScript, compiling of the LESS files, adding banners to keep the Apache 2.0 license intact, and watching for changes. Run the grunt default task by entering `grunt` into your command line which will build the files. You can use `grunt watch` if you are working on the JavaScript or the LESS.
+- Ruby 3+
+- Jekyll (and related dependencies / Gems if not already installed) `gem install jekyll`
 
-You can run `jekyll serve --watch` and `grunt watch` at the same time to watch for changes and then build them all at once.
+To run locally, run the following command:
 
-## Support
-
-Visit Clean Blog's template overview page on Start Bootstrap at http://startbootstrap.com/template-overviews/clean-blog/ and leave a comment, email feedback@startbootstrap.com, or open an issue here on GitHub for support.
+`bundle exec jekyll serve --watch`

@@ -2,13 +2,13 @@
 title: Varchar FTW
 header-img: img/home-bg.png
 email: brian.a.schoonmaker@gmail.com
-copyright_name: insomicman
-description: > # this means to ignore newlines until "baseurl:"
-  A primer on all things database, SQL and back-end development
-baseurl: "" # the subpath of your site, e.g. /blog
-twitter_username: 
-github_username:  insomicman
-learn_profile: insomicman
+copyright_name: brian-schoonmaker
+description: >
+  A rarely updated personal blog including thoughts based on my experience with backend and occasional brushes with frontend development.
+baseurl: "" # the subpath of your site, e.g. /blog if we ever want to deal with multiple DNS entries
+twitter_username:
+github_username: brian-schoonmaker
+linkedin_username: brian-a-schoonmaker
 email_username: brian.a.schoonmaker@gmail.com
 
 # Build settings
@@ -16,6 +16,6 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 5
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
 
 gems: [jekyll-paginate, jekyll-feed]

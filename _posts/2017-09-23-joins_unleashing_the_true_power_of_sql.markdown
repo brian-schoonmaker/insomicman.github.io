@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "Joins: Unleashing the True Power of SQL"
-date:   2017-09-23 20:51:41 -0400
+title: "Joins: Unleashing the True Power of SQL"
+date: 2017-09-23 20:51:41 -0400
 ---
-
 
 ![](https://i.imgur.com/UspxGYd.jpg)
 
-One of the most difficult as well as powerful tools in a SQL coder's arsenal is the JOIN command. It allows the user to combine tables linked by a primary key and perform queries on a new table defined by the user's given criteria. There are essentially 6 types of JOINs in SQL:
+One of the most powerful tools in a SQL coder's arsenal is the JOIN command. Technically speaking, it allows the user to combine tables linked by a primary key and perform queries on a new table defined by the user's given criteria. More broadly, JOINs are what make relational databases work, allowing specific information to be stored in different tables and combined later through relationships between specific columns in each table. There are essentially 6 types of JOINs in SQL:
 
 1. **Inner Join**: The shorthand for this type of join is simply JOIN. It returns the rows present in both the left and right table only if there is a match.
 2. **Full Outer Join**: The shorthand for this type of join is Full Join. It returns all the rows present in both the left and right tables, regardless of a match.
@@ -21,7 +20,7 @@ INNER JOINs are the most common type of SQL JOINs. Below is the basic structure 
 ```
 SELECT column1, column2, …
 FROM table
-INNER JOIN another_table 
+INNER JOIN another_table
     ON table.id = another_table.id
 WHERE condition(s)
 ORDER BY column, … ASC/DESC
@@ -30,22 +29,22 @@ LIMIT num_limit OFFSET num_offset;
 
 Let's break down the other components of this generalized query for those new to SQL:
 
-* **SELECT** specifies which columns are pulled from the first table.
-* **FROM** points to the table from which the columns are pulled.
-* **WHERE** specifies certain conditions for which matched data is pulled. (WHERE column1 > 50)
-* **ORDER BY** specifies which column 
-* **ASC/DESC** determines whether the values will display in ascending or descending order.
-* **LIMIT** specifies the maximum number of rows returned (LIMIT 100 returns the first 100 rows).
-* **OFFSET** sets the number of initial values to skip. (OFFSET 10 will show values in rows 11+)
+- **SELECT** specifies which columns are pulled from the first table.
+- **FROM** points to the table from which the columns are pulled.
+- **WHERE** specifies certain conditions for which matched data is pulled. (WHERE column1 > 50)
+- **ORDER BY** specifies which column
+- **ASC/DESC** determines whether the values will display in ascending or descending order.
+- **LIMIT** specifies the maximum number of rows returned (LIMIT 100 returns the first 100 rows).
+- **OFFSET** sets the number of initial values to skip. (OFFSET 10 will show values in rows 11+)
 
 ## INNER JOINs: The Most Useful of JOINs
 
 ![](https://www.w3resource.com/w3r_images/sql-inner-join-set-image.gif)
 
-Now that the basics are covered, let's take a look at the inner join and see how it functions: 
+Now that the basics are covered, let's take a look at the inner join and see how it functions:
 
 ```
-JOIN another_table 
+JOIN another_table
     ON mytable.id = another_table.id
 ```
 
@@ -63,13 +62,12 @@ In some situations, in addition to returning matching rows between two tables, y
 
 FULL OUTER JOIN returns the set of all records from both tables. If there is a match, the rows will be returned similarly to an INNER JOIN. If there is no match, a row will be returned with null values for the other table. For example, take the following two tables:
 
-
-| First        | Last        |     |  First        | Last        |
-| -------------- | -------------- |     | -------------- | -------------- |
-| John        | Doe         |     | Beth        | Doe         |
-| Mary        | Smith      |      | John        | Smith      |
-| John        | Kate        |     | Mary       | Ruso         |
-| Mary        | Dorn       |      | Dan        | Donahue    |
+| First | Last | | First | Last |
+| -------------- | -------------- | | -------------- | -------------- |
+| John | Doe | | Beth | Doe |
+| Mary | Smith | | John | Smith |
+| John | Kate | | Mary | Ruso |
+| Mary | Dorn | | Dan | Donahue |
 
 If we perform a FULL OUTER JOIN between these two tables:
 
@@ -81,24 +79,27 @@ ON Table1.last = Table2.last
 
 The result is the following:
 
-| First        | Last        |     |  First        | Last        |
-| -------------- | -------------- |     | -------------- | -------------- |
-|John	| Doe	|| Beth	| Doe |
-|Mary|	Smith||	John	|Smith|
-|John|	Kate	||(null)	|(null)|
-|Mary	|Dorn||	(null)|	(null)|
-|(null)|	(null)||	Mary	|Ruso|
-|(null)|	(null)	||Dan|	Donahue|
+| First | Last | | First | Last |
+| -------------- | -------------- | | -------------- | -------------- |
+|John | Doe || Beth | Doe |
+|Mary| Smith|| John |Smith|
+|John| Kate ||(null) |(null)|
+|Mary |Dorn|| (null)| (null)|
+|(null)| (null)|| Mary |Ruso|
+|(null)| (null) ||Dan| Donahue|
 
 Notice the null values where no match was detected.
 
-> NOTE: MySQL does not allow for the FULL OUTER JOIN command, but it can be emulated: 
+> NOTE: MySQL does not allow for the FULL OUTER JOIN command, but it can be emulated:
+>
 > ```
-SELECT * FROM Table1
-LEFT JOIN Table2 ON Table1.last = Table2.last
-UNION
-SELECT * FROM Table1
-RIGHT JOIN Table2 ON Table1.last = Table2.last
+> SELECT * FROM Table1
+> LEFT JOIN Table2 ON Table1.last = Table2.last
+> UNION
+> SELECT * FROM Table1
+> RIGHT JOIN Table2 ON Table1.last = Table2.last
+> ```
+
 ```
 
 #### LEFT and RIGHT OUTER JOINs: Introducing Null Values in Query Results
@@ -110,9 +111,11 @@ LEFT and RIGHT OUTER JOINs function similarly to FULL OUTER JOINs, but instead o
 For example, if you were to do a LEFT OUTER JOIN on the above tables:
 
 ```
-SELECT * FROM Table1
+
+SELECT \* FROM Table1
 LEFT OUTER JOIN Table2
 ON Table1.last = Table2.last
+
 ```
 
 The result would be:
@@ -127,9 +130,11 @@ The result would be:
 And with a RIGHT OUTER JOIN, the syntax is nearly identical:
 
 ```
-SELECT * FROM Table1
+
+SELECT \* FROM Table1
 RIGHT OUTER JOIN Table2
 ON Table1.last = Table2.last
+
 ```
 
 This is the result:
@@ -148,16 +153,18 @@ Notice that the null values are in the 2nd table with a LEFT OUTER JOIN, while t
 A SELF JOIN is, as the name implies, a SQL query where a table is joined with itself. It's used to compare values in a particular column with other values in that same table. A practical use of this is to create a running total of integer values. Below is an entirely impractical example that simply returns all first names in the table, as the same variable is being compared. In order to do this, we have to create two ailiases both linked to the same table and join them together:
 
 ```
+
 SELECT a.first, b.first
-FROM table2 a, table2 b 
+FROM table2 a, table2 b
 WHERE a.first = b.first;
+
 ```
 
 Here's the result:
 
-			
-| First        | First       |   
-| -------------- | -------------- | 
+
+| First        | First       |
+| -------------- | -------------- |
 |Beth         |Beth        |
 |John	       |John        |
 |Mary        |	Mary     |
@@ -172,8 +179,10 @@ The final and rarely used join is the CROSS JOIN. It returns the cartesian produ
 For example consider the following code:
 
 ```
-SELECT * FROM Table1
+
+SELECT \* FROM Table1
 CROSS JOIN Table2
+
 ```
 
 A table with 4 rows CROSS JOINed to a table with 4 rows returns 4\*4 = 16 rows:
@@ -203,6 +212,7 @@ Since there are no conditions used in this code, it isn't particularly useful. B
 
 Technically, SQL is not a case sensitive language, so capitalizing command isn't required. It does, however, make the code much more readable. If there's any possibility that someone else will eventually modify the code, best practices suggest making the SQL commands all caps so that another person can easily identify them. It's just common courtesy, and the sooner you can get in the habit of doing so, the better. Your peers will thank you for it.
 
-So there are the 6 main JOINs used in SQL, from the incredibly useful INNER JOIN to the occasionally useful CROSS JOIN. Is there anything I missed? Let me know - I'm always looking to expand my skillset.
+So there are the 6 main JOINs used in SQL, from the incredibly useful INNER JOIN to the occasionally useful CROSS JOIN.
 
 
+```
