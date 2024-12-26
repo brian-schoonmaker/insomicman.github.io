@@ -56,7 +56,7 @@ On the first line of this code snippit, the user specifies the second table (ano
 
 In some situations, in addition to returning matching rows between two tables, you want to include all unmatched rows from one or more tables as well. That's where OUTER JOINs come in.
 
-### FULL OUTER JOIN:
+### FULL OUTER JOIN
 
 ![](https://i.imgur.com/KXFG0bG.png)
 
@@ -100,8 +100,6 @@ Notice the null values where no match was detected.
 > RIGHT JOIN Table2 ON Table1.last = Table2.last
 > ```
 
-```
-
 #### LEFT and RIGHT OUTER JOINs: Introducing Null Values in Query Results
 
 LEFT and RIGHT OUTER JOINs function similarly to FULL OUTER JOINs, but instead of returning unmatched rows from both tables, it only returns either unmatched rows from the first or the second table. A LEFT OUTER JOIN will return unmatched rows from the 1st table, while a RIGHT OUTER JOIN returns those from the 2nd.
@@ -111,44 +109,40 @@ LEFT and RIGHT OUTER JOINs function similarly to FULL OUTER JOINs, but instead o
 For example, if you were to do a LEFT OUTER JOIN on the above tables:
 
 ```
-
 SELECT \* FROM Table1
 LEFT OUTER JOIN Table2
 ON Table1.last = Table2.last
-
 ```
 
 The result would be:
 
-| First        | Last        |     |  First        | Last        |
-| -------------- | -------------- |     | -------------- | -------------- |
-|John|	Doe||	Beth|	Doe|
-|Mary|	Smith||	John|	Smith|
-|John|	Kate||	(null)|	(null)|
-|Mary|	Dorn||	(null)|	(null)|
+| First | Last | | First | Last |
+| -------------- | -------------- | | -------------- | -------------- |
+|John| Doe|| Beth| Doe|
+|Mary| Smith|| John| Smith|
+|John| Kate|| (null)| (null)|
+|Mary| Dorn|| (null)| (null)|
 
 And with a RIGHT OUTER JOIN, the syntax is nearly identical:
 
 ```
-
 SELECT \* FROM Table1
 RIGHT OUTER JOIN Table2
 ON Table1.last = Table2.last
-
 ```
 
 This is the result:
 
-| First        | Last        |     |  First        | Last        |
-| -------------- | -------------- |     | -------------- | -------------- |
-|John|	Doe||	Beth|	Doe|
-|Mary|	Smith||	John	|Smith|
-|(null)|	(null)||	Mary	|Ruso|
-|(null)|	(null)	||Dan|	Donahue|
+| First | Last | | First | Last |
+| -------------- | -------------- | | -------------- | -------------- |
+|John| Doe|| Beth| Doe|
+|Mary| Smith|| John |Smith|
+|(null)| (null)|| Mary |Ruso|
+|(null)| (null) ||Dan| Donahue|
 
 Notice that the null values are in the 2nd table with a LEFT OUTER JOIN, while the null values are in the 1st table with a RIGHT OUTER JOIN.
 
-### SELF JOINs:
+## SELF JOINs
 
 A SELF JOIN is, as the name implies, a SQL query where a table is joined with itself. It's used to compare values in a particular column with other values in that same table. A practical use of this is to create a running total of integer values. Below is an entirely impractical example that simply returns all first names in the table, as the same variable is being compared. In order to do this, we have to create two ailiases both linked to the same table and join them together:
 
@@ -162,17 +156,16 @@ WHERE a.first = b.first;
 
 Here's the result:
 
-
-| First        | First       |
-| -------------- | -------------- |
-|Beth         |Beth        |
-|John	       |John        |
-|Mary        |	Mary     |
-|Dan	       |Dan         |
+| First | First |
+| ----- | ----- |
+| Beth  | Beth  |
+| John  | John  |
+| Mary  | Mary  |
+| Dan   | Dan   |
 
 Again, this isn't particularly useful, but it's a proof of concept without comparing integer values.
 
-#### CROSS JOINs: All Your Rows Are Belong to Us
+## CROSS JOINs: All Your Rows Are Belong to Us
 
 The final and rarely used join is the CROSS JOIN. It returns the cartesian product of the two tables. This joins "everything to everything", meaning a table with 4 rows CROSS JOINed to a table with 5 rows returns 4\*5 = 20 rows.
 
@@ -187,24 +180,24 @@ CROSS JOIN Table2
 
 A table with 4 rows CROSS JOINed to a table with 4 rows returns 4\*4 = 16 rows:
 
-| First        | Last        |     |  First        | Last        |
-| -------------- | -------------- |     | -------------- | -------------- |
-|John	|Doe||	Beth|	Doe|
-|Mary|	Smith||	Beth|	Doe|
-|John|	Kate	||Beth	|Doe|
-|Mary|	Dorn||	Beth	|Doe|
-|John|	Doe||	John	|Smith|
-|Mary|	Smith||	John	|Smith|
-|John|	Kate	||John|	Smith|
-|Mary|	Dorn||	John	|Smith|
-|John|	Doe||	Mary|	Ruso|
-|Mary|	Smith||	Mary|	Ruso|
-|John|	Kate||	Mary|	Ruso|
-|Mary|	Dorn||	Mary|	Ruso|
-|John|	Doe||	Dan|	Donahue|
-|Mary	|Smith||	Dan|	Donahue|
-|John|	Kate||	Dan|	Donahue|
-|Mary|	Dorn	||Dan|	Donahue|
+| First | Last | | First | Last |
+| -------------- | -------------- | | -------------- | -------------- |
+|John |Doe|| Beth| Doe|
+|Mary| Smith|| Beth| Doe|
+|John| Kate ||Beth |Doe|
+|Mary| Dorn|| Beth |Doe|
+|John| Doe|| John |Smith|
+|Mary| Smith|| John |Smith|
+|John| Kate ||John| Smith|
+|Mary| Dorn|| John |Smith|
+|John| Doe|| Mary| Ruso|
+|Mary| Smith|| Mary| Ruso|
+|John| Kate|| Mary| Ruso|
+|Mary| Dorn|| Mary| Ruso|
+|John| Doe|| Dan| Donahue|
+|Mary |Smith|| Dan| Donahue|
+|John| Kate|| Dan| Donahue|
+|Mary| Dorn ||Dan| Donahue|
 
 Since there are no conditions used in this code, it isn't particularly useful. But if you need to look at all the possible permutations of row combinations, it can be helpful.
 
@@ -213,6 +206,3 @@ Since there are no conditions used in this code, it isn't particularly useful. B
 Technically, SQL is not a case sensitive language, so capitalizing command isn't required. It does, however, make the code much more readable. If there's any possibility that someone else will eventually modify the code, best practices suggest making the SQL commands all caps so that another person can easily identify them. It's just common courtesy, and the sooner you can get in the habit of doing so, the better. Your peers will thank you for it.
 
 So there are the 6 main JOINs used in SQL, from the incredibly useful INNER JOIN to the occasionally useful CROSS JOIN.
-
-
-```
